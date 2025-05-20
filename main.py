@@ -34,7 +34,7 @@ if user_input:
 
     # FastAPI 서버에 POST 요청
     response = requests.post(
-        "https://9100-117-16-152-30.ngrok-free.app/chat",  # ngrok 주소 또는 포트포워딩 주소
+        "https://d118-117-16-152-30.ngrok-free.app/chat",  # ngrok 주소 또는 포트포워딩 주소
         json={"instruction": user_input, "task": selected_task}
     )
 
