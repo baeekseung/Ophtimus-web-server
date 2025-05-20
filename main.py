@@ -38,8 +38,8 @@ if user_input:
         json={"instruction": user_input, "task": selected_task}
     )
 
-    result = response
-    ai_response = result
+    result = response.json()
+    ai_response = result["response"]
 
     with st.chat_message("assistant"):
         st.markdown(ai_response)
