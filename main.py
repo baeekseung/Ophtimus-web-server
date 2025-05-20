@@ -34,9 +34,12 @@ if user_input:
 
     # FastAPI 서버에 POST 요청
     response = requests.post(
-        "https://c206-210-97-28-7.ngrok-free.app/chat",  # ngrok 주소 또는 포트포워딩 주소
+        "http://https://9ea7-117-16-152-30.ngrok-free.app/chat",  # ngrok 주소 또는 포트포워딩 주소
         json={"instruction": user_input, "task": selected_task}
     )
+
+    # st.write("✅ 서버 응답 상태코드:", response.status_code)
+    # st.write("📦 서버 응답 본문:", response.text)
 
     result = response.json()
     ai_response = result["response"]
