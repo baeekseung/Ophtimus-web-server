@@ -39,8 +39,7 @@ if user_input:
     )
 
     result = response.json()
-    print(result)
-    ai_response = result["response"]
+    ai_response = result
 
     with st.chat_message("assistant"):
         st.markdown(ai_response)
