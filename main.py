@@ -2,6 +2,11 @@ import streamlit as st
 import requests
 import re
 from langchain_core.messages import ChatMessage
+from dotenv import load_dotenv
+load_dotenv()
+
+from langchain_teddynote import logging
+logging.langsmith("Ophtimus-llm-Web, set_enable=True)
 
 st.title("Ophthalmology Chatbot: Ophtimus")
 
