@@ -5,7 +5,7 @@ from langchain_core.messages import ChatMessage
 
 st.title("Ophthalmology Chatbot: Ophtimus")
 
-API_URL = "https://ba76-117-16-152-30.ngrok-free.app/chat"
+API_URL = "https://3430-117-16-152-30.ngrok-free.app/chat"
 
 if "Chat_History" not in st.session_state:
     st.session_state['Chat_History'] = []
