@@ -1,2 +1,4 @@
 langchain
 langchain-core
+langchain_teddynote
+dotenv
