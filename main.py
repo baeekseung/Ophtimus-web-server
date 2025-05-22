@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_teddynote import logging
-logging.langsmith("Ophtimus-llm-Web, set_enable=True)
+logging.langsmith("Ophtimus-llm-Web", set_enable=True)
 
 st.title("Ophthalmology Chatbot: Ophtimus")
 
