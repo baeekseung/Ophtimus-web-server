@@ -10,7 +10,7 @@ logging.langsmith("Ophtimus-llm-Web", set_enable=True)
 
 st.title("Ophthalmology Chatbot: Ophtimus")
 
-API_URL = "https://77c3-117-16-152-30.ngrok-free.app/chat"
+API_URL = "https://cd98921c5fa9.ngrok-free.app/chat"
 
 if "Chat_History" not in st.session_state:
     st.session_state['Chat_History'] = []
