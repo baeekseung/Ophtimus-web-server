@@ -43,10 +43,10 @@ def clean_assistant(raw_text: str) -> str:
     m = pattern.search(raw_text)
     return m.group(1).strip() if m else raw_text.strip()
 
-def normalize_markdown(txt: str) -> str:
-    txt = re.sub(r"^```[a-zA-Z0-9]*\s*", "", txt.strip())
-    txt = re.sub(r"\s*```$", "", txt)
-    return txt
+def clean_textbox(raw_text: str) -> str:
+    raw_text = re.sub(r"^```[a-zA-Z0-9]*\s*", "", raw_text.strip())
+    raw_text = re.sub(r"\s*```$", "", raw_text)
+    return raw_text
 
 print_chat_history()
 user_input = st.chat_input("Input your question")
@@ -63,7 +63,7 @@ if user_input:
         })
         ai_response = clean_assistant(res.json()["response"])
 
-        ai_response = normalize_markdown(clean_assistant(res.json()["response"]))
+        ai_response = clean_textbox(clean_assistant(res.json()["response"]))
         with st.chat_message("assistant"):
             st.markdown(ai_response)
 
@@ -85,7 +85,7 @@ if st.session_state.show_answers and st.session_state.generated_answers:
     for idx, col in enumerate((col1, col2)):
         with col:
             st.subheader(f"답변 {idx + 1}")
-            st.markdown(normalize_markdown(st.session_state.generated_answers[idx]))
+            st.markdown(clean_textbox(st.session_state.generated_answers[idx]))
 
     selected_idx = st.radio(
         "더 도움이 된 답변을 선택해주세요:",
