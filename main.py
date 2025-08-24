@@ -36,7 +36,11 @@ def add_message(role, content):
 
 def print_chat_history():
     for chat in st.session_state.Chat_History:
-        st.chat_message(chat.role).write(chat.content)
+        with st.chat_message(chat.role):
+            if chat.role == "assistant":
+                st.text(chat.content)   
+            else:
+                st.markdown(chat.content) 
 
 def clean_assistant(raw_text: str) -> str:
     pattern = re.compile(r"<\|start_header_id\|>assistant<\|end_header_id\|>\s*(.*?)\s*(?:<\|eot_id\|>|$)", re.DOTALL)
