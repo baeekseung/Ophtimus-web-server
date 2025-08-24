@@ -23,8 +23,8 @@ with st.sidebar:
     st.markdown("## 설정")
     clear_button = st.button("remove chat history")
 
-    selected_task = st.selectbox("Select model", ("Ophtimus Diagnosis", "Ophtimus Q&A"))
-    selected_version = st.radio("Select version", ("Basic Chat", "Dual Answer"))
+    selected_task = st.selectbox("Select model", ("Ophtimus Diagnosis", "Ophtimus Q&A", "Ophtimus Treatment Guide"))
+    selected_version = st.radio("Select version", ("Basic Chat", "Collect Preference"))
 
     if clear_button:
         for key in st.session_state:
@@ -64,7 +64,7 @@ if user_input:
         add_message("user", user_input)
         add_message("assistant", ai_response)
 
-    elif selected_version == "Dual Answer":
+    elif selected_version == "Collect Preference":
         with st.spinner("답변 생성 중..."):
             res = requests.post(API_URL, json={
                 "instruction": user_input,
